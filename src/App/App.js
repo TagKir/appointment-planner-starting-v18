@@ -6,9 +6,10 @@ import {
   Route,
   Navigate,
 } from "react-router-dom";
-import Root, { ROUTES } from "./containers/Root";
-import { AppointmentsPage } from "./containers/appointmentsPage/AppointmentsPage";
-import { ContactsPage } from "./containers/contactsPage/ContactsPage";
+import Root, { ROUTES } from "../Root";
+import { AppointmentsPage } from "../appointmentsPage/AppointmentsPage";
+import { ContactsPage } from "../contactsPage/ContactsPage";
+import styles from "./App.css";
 
 function App() {
   const [contacts, setContacts] = useState([
@@ -21,7 +22,7 @@ function App() {
   const [appointments, setAppointments] = useState([
     {
       title: "test_title",
-      contact: contacts,
+      contact: "Test",
       date: Date.now(),
       time: "15:32",
     },
@@ -34,9 +35,10 @@ function App() {
     ]);
   }
   function addAppointment(title, contact, date, time) {
-    setAppointments((prev) =>
-      prev.push({ title: title, contact: contact, date: date, time: time })
-    );
+    setAppointments((prev) => [
+      ...prev,
+      { title: title, contact: contact, date: date, time: time },
+    ]);
   }
 
   const router = createBrowserRouter(
@@ -51,6 +53,7 @@ function App() {
           path={ROUTES.APPOINTMENTS}
           element={
             <AppointmentsPage
+              contacts={contacts}
               appointments={appointments}
               addAppointment={addAppointment}
             />
