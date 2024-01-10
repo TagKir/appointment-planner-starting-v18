@@ -5,3 +5,16 @@ h1 {
   font-size: 50px;
   text-align: center;
 }
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style: none;
+}
+
+.name,
+.title {
+  font-weight: 700;
+}

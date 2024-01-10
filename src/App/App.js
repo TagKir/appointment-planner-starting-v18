@@ -9,24 +9,10 @@ import {
 import Root, { ROUTES } from "../Root";
 import { AppointmentsPage } from "../appointmentsPage/AppointmentsPage";
 import { ContactsPage } from "../contactsPage/ContactsPage";
-import styles from "./App.css";
 
 function App() {
-  const [contacts, setContacts] = useState([
-    {
-      name: "test_name",
-      phone: "89162671775",
-      email: "test@test.com",
-    },
-  ]);
-  const [appointments, setAppointments] = useState([
-    {
-      title: "test_title",
-      contact: "Test",
-      date: Date.now(),
-      time: "15:32",
-    },
-  ]);
+  const [contacts, setContacts] = useState([]);
+  const [appointments, setAppointments] = useState([]);
 
   function addContact(name, phone, email) {
     setContacts((prev) => [

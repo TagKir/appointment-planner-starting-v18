@@ -33,7 +33,7 @@ export const AppointmentsPage = (props) => {
           <input
             list="selectedContact"
             placeholder="No Contact Select"
-            onChange={(e) => setContact(e.target.value)}
+            onChange={(e) => setContact(e.target.value.replace(/\s/g, ""))}
           />
           <datalist id="selectedContact">
             {props.contacts.map((contact) => (
@@ -58,7 +58,7 @@ export const AppointmentsPage = (props) => {
         <h2>Appointments</h2>
         {props.appointments.map((appointment) => (
           <ul>
-            <li>{appointment.title}</li>
+            <li className="title">{appointment.title}</li>
             <li>{appointment.contact}</li>
             <li>{appointment.date}</li>
             <li>{appointment.time}</li>
